@@ -4,4 +4,4 @@
 
 # Tools
   # Coordinate Converter
-    This tool will convert coordinates from degrees to meters. So for example from WGS 84 to UTM 
+   This tool will convert coordinates from degrees to meters. So for example from WGS 84 to UTM 
