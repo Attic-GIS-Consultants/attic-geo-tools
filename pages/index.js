@@ -16,7 +16,7 @@ export default function Home() {
 
       <main>
         <Container maxWidth={true} sx={{ display: "flex", flexDirection: 'column', alignItems: 'center' }}>
-          <Typography variant="h1">Attic Geo Tools</Typography>
+          <Typography variant="h1">Tools</Typography>
 
 
           <Grid container>

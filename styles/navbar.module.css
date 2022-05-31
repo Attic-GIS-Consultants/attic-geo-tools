@@ -1,0 +1,42 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.navBar {
+  display: flex;
+}
+.hamBurger {
+  display: none;
+}
+
+.navHidden {
+   margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 0px;
+  gap: 5px;
+}
+
+@media (max-width: 768px) {
+    .nav {
+  display: flex;
+  flex-direction: column;
+  justify-content:left
+}
+  .hamBurger {
+    display: block;
+  }
+  .navBar {
+    justify-content: space-between;
+  }
+  .navShow {
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    gap: 5px;
+  }
+  .navHidden {
+    display: none;
+  }
+}

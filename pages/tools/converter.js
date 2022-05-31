@@ -1,24 +1,36 @@
 import { Button, Container, TextField } from '@mui/material'
+import axios from 'axios'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import { useState } from 'react'
-
-
-
-
+import { Proj, transform, toPoint } from "proj4"
+import api from "../../apiConfig/api"
 
 //const Marker = dynamic(() => import("../../components/Marker"), { ssr: false });
 const Map = dynamic(() => import("../../components/map"), { ssr: false });
 
 export default function Converter() {
-    const [latM, setLatM] = useState()
-    const [lngM, setLngM] = useState()
-    const [latD, setLatD] = useState()
-    const [lngD, setLngD] = useState()
+    const [latM, setLatM] = useState(0)
+    const [lngM, setLngM] = useState(0)
+    const [latD, setLatD] = useState(0)
+    const [lngD, setLngD] = useState(0)
 
     const [markers, setMarkers] = useState([])
 
-    
+    let coonvertCoordinates = () => {
+        api.post('/coordinates/convert', {
+            degrees: [latD, lngD],
+            meters: [latM, lngM]
+        }).then(res => {
+            setLatD(res.data.degrees[0])
+            setLatM(res.data.meters[0])
+            setLngD(res.data.degrees[1])
+            setLngM(res.data.meters[1])
+        }).catch(err => {
+            alert(err)
+        })
+    }
+
     return (
         <div>
             <Head>
@@ -29,30 +41,38 @@ export default function Converter() {
 
             <main>
                 <Container sx={{ display: 'flex', flexDirection: 'column' }}>
-                    <Container sx={{ display: 'flex', py: 4, gap: 2, justifyContent: 'center' }}>
-                        <TextField variant='outlined' label="Lat (meters)" onChange={(e) => {
-                            setLatM(e.target.value)
-                        }} />
-                        <TextField variant='outlined' label="Lon (meters)" onChange={(e) => {
-                            setLngM(e.target.value)
-                        }} />
-                    </Container>
-                    <Container sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
-                        <TextField variant='outlined' label="Lat (degrees)" onChange={(e) => {
+                    <Container sx={{ display: 'flex', gap: 2, justifyContent: 'center', py: 2 }}>
+                        <TextField variant='outlined' label="Lat (degrees)" value={latD} onChange={(e) => {
                             setLatD(e.target.value)
                         }} />
-                        <TextField variant='outlined' label="Lon (degrees)" onChange={(e) => {
+                        <TextField variant='outlined' label="Lon (degrees)" value={lngD} onChange={(e) => {
                             setLngD(e.target.value)
                         }} />
                     </Container>
+                    <Container sx={{ display: 'flex', py: 2, gap: 2, justifyContent: 'center' }}>
+                        <TextField variant='outlined' label="Lat (meters)" value={latM} onChange={(e) => {
+                            setLatM(e.target.value)
+                        }} />
+                        <TextField variant='outlined' label="Lon (meters)" value={lngM} onChange={(e) => {
+                            setLngM(e.target.value)
+                        }} />
+                    </Container>
 
-                    <Container sx={{ display: 'flex', justifyContent: 'center', py: 2, justifyContent: 'center' }}>
+
+                    <Container sx={{ display: 'flex', justifyContent: 'center', py: 2, justifyContent: 'center', gap: 2 }}>
                         <Button variant="contained" onClick={() => {
                             console.log({ latD, lngD, latM, lngM })
-                            // let tempMarker = Mark({coordinates:[34.4343,-12.334],id:"2121",title:"SKI"})
-                            //setMarkers([...markers,tempMarker])
+                            coonvertCoordinates()
                         }}>
                             Convert
+                        </Button>
+                        <Button variant="outlined" onClick={() => {
+                            setLatD(0)
+                            setLatM(0)
+                            setLngD(0)
+                            setLngM(0)
+                        }}>
+                            Clear
                         </Button>
                     </Container>
 
