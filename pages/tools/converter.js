@@ -19,8 +19,8 @@ export default function Converter() {
 
     let coonvertCoordinates = () => {
         api.post('/coordinates/convert', {
-            degrees: [latD, lngD],
-            meters: [latM, lngM]
+            degrees: [lngD, latD,],
+            meters: [lngM,latM ]
         }).then(res => {
             setLatD(res.data.degrees[0])
             setLatM(res.data.meters[0])
