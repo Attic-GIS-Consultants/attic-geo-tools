@@ -14,10 +14,10 @@ export default function Navbar() {
         <Typography variant='h4' sx={{ fontSize: '20pt',marginTop:1,marginLeft:1, fontWeight:500}}>
           ATTIC GEO TOOLS
         </Typography>
-        <IconButton className={styles.hamBurger} sx={{}} onClick={()=>{
+        <IconButton color="primary" className={styles.hamBurger} sx={{}} onClick={()=>{
           setBarClicked(!barClicked)
         }}>
-          {barClicked ? <VscClose size={30}/>  : <VscThreeBars size={30} /> }
+          {barClicked ? <VscClose size={30} /> : <VscThreeBars size={30} /> }
           
         </IconButton>
       </div>
