@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { Proj, transform, toPoint } from "proj4"
 import api from "../../apiConfig/api"
 
+
 //const Marker = dynamic(() => import("../../components/Marker"), { ssr: false });
 const Map = dynamic(() => import("../../components/map"), { ssr: false });
 
@@ -15,17 +16,26 @@ export default function Converter() {
     const [latD, setLatD] = useState(0)
     const [lngD, setLngD] = useState(0)
 
-    const [markers, setMarkers] = useState([])
-
+    const [mapOptions, setMapOptions] = useState({
+        zoom: 6,
+        center: [-13.973922, 33.756947],
+        marker: [0, 0]
+    })
     let coonvertCoordinates = () => {
         api.post('/coordinates/convert', {
             degrees: [lngD, latD,],
-            meters: [lngM,latM ]
+            meters: [lngM, latM]
         }).then(res => {
-            setLatD(res.data.degrees[0])
+            setMapOptions({
+                zoom: 14,
+                center: [res.data.degrees[1], res.data.degrees[0]],
+                marker: [res.data.degrees[1], res.data.degrees[0]]
+            })
+            setLatD(res.data.degrees[1])
             setLatM(res.data.meters[0])
-            setLngD(res.data.degrees[1])
+            setLngD(res.data.degrees[0])
             setLngM(res.data.meters[1])
+            
         }).catch(err => {
             alert(err)
         })
@@ -57,10 +67,9 @@ export default function Converter() {
                             setLngM(e.target.value)
                         }} />
                     </Container>
-
-
                     <Container sx={{ display: 'flex', justifyContent: 'center', py: 2, justifyContent: 'center', gap: 2 }}>
                         <Button variant="contained" onClick={() => {
+
                             console.log({ latD, lngD, latM, lngM })
                             coonvertCoordinates()
                         }}>
@@ -78,7 +87,11 @@ export default function Converter() {
 
                 </Container>
                 <Container sx={{ p: 0, display: 'flex', justifyContent: 'center' }}>
-                    <Map />
+                    <Map
+                        zoom={mapOptions.zoom}
+                        center={mapOptions.center}
+                        position={mapOptions.marker}
+                    />
                 </Container>
 
 
