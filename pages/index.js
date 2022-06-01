@@ -19,7 +19,7 @@ export default function Home() {
           <Typography variant="h1">Tools</Typography>
 
 
-          <Grid container>
+          <Grid container sx={{py:2}}>
             <Grid item xs={12}>
               <Card>
                 <CardActionArea
