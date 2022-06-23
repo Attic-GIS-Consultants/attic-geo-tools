@@ -20,7 +20,7 @@ export default function Home() {
 
 
           <Grid container sx={{py:2}}>
-            <Grid item xs={12}>
+            <Grid item xs={6}>
               <Card>
                 <CardActionArea
                   href='/tools/converter'
@@ -37,6 +37,28 @@ export default function Home() {
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                       Convert meters into degrees or vice versa
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </Grid>
+            <Grid item xs={6}>
+              <Card>
+                <CardActionArea
+                  href='/tools/maps'
+                >
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image="https://cdn1.vectorstock.com/i/1000x1000/52/80/globe-with-locations-earth-and-continents-vector-28045280.jpg"
+                    alt="coordinate convert"
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      Hosted Maps
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Create maps in QGIS and upload and host the layers on a web map
                     </Typography>
                   </CardContent>
                 </CardActionArea>
