@@ -1,6 +1,6 @@
 import { MapContainer, Marker, TileLayer } from 'react-leaflet'
 import "leaflet/dist/leaflet.css"
-import styles from "../styles/map.module.css"
+import styles from "../../styles/map.module.css"
 import L from "leaflet"
 
 export default function Map(props) {
