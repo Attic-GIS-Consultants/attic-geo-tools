@@ -19,9 +19,9 @@ export default function Home() {
           <Typography variant="h1">Tools</Typography>
 
 
-          <Grid container sx={{py:2}}>
-            <Grid item xs={6}>
-              <Card>
+          <Grid container sx={{ display:'flex',justifyContent:'center', py: 2,gap:12 }} maxWidth={true}>
+            <Grid item >
+              <Card sx={{ width: '100%', marginLeft: 2, marginRight: 2, marginBottom: 2, maxWidth: 345, height: 250 }} elevation={12}>
                 <CardActionArea
                   href='/tools/converter'
                 >
@@ -42,15 +42,15 @@ export default function Home() {
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={6}>
-              <Card>
+            <Grid item >
+              <Card sx={{ width: '100%', marginLeft: 2, marginRight: 2, marginBottom: 2, maxWidth: 345 ,height:250}} elevation={12}>
                 <CardActionArea
                   href='/tools/maps'
                 >
                   <CardMedia
                     component="img"
                     height="140"
-                    image="https://cdn1.vectorstock.com/i/1000x1000/52/80/globe-with-locations-earth-and-continents-vector-28045280.jpg"
+                    image="https://res.cloudinary.com/attic-gis/image/upload/v1656019047/map_rfvxls.png"
                     alt="coordinate convert"
                   />
                   <CardContent>
