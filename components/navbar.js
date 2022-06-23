@@ -1,11 +1,8 @@
-import { BottomNavigation, BottomNavigationAction, Box, IconButton, Typography } from '@mui/material'
+import { IconButton, Typography } from '@mui/material'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { FcHome } from "react-icons/fc"
 import { VscThreeBars, VscClose } from "react-icons/vsc"
-import { GoTools } from "react-icons/go"
 import styles from "../styles/navbar.module.css"
-import { fontWeight } from '@mui/system'
 export default function Navbar() {
   const [barClicked,setBarClicked] = useState(false)
   return (

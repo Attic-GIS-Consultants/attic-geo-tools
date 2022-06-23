@@ -8,7 +8,7 @@ import api from "../../apiConfig/api"
 
 
 //const Marker = dynamic(() => import("../../components/Marker"), { ssr: false });
-const Map = dynamic(() => import("../../components/map"), { ssr: false });
+const Map = dynamic(() => import("../../components/coordinates/map.js"), { ssr: false });
 
 export default function Converter() {
     const [latM, setLatM] = useState(0)
