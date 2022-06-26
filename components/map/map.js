@@ -27,6 +27,11 @@ export default function Map(props) {
                         <GeoJSON
                             key={i}
                             data={ layer}
+                            style = {(ft)=>{            
+                                return {
+                                    color: layer.style.color,
+                                };
+                            }}
                         />
                     )
                 })

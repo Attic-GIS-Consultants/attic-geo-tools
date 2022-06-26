@@ -35,14 +35,14 @@ export default function Home() {
                     <Typography gutterBottom variant="h5" component="div">
                       Coordinate Converter
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body1" color="text.secondary">
                       Convert meters into degrees or vice versa
                     </Typography>
                   </CardContent>
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item >
+            <Grid item>
               <Card sx={{ width: '100%', marginLeft: 2, marginRight: 2, marginBottom: 2, maxWidth: 345 ,height:250}} elevation={12}>
                 <CardActionArea
                   href='/tools/maps'
@@ -57,7 +57,7 @@ export default function Home() {
                     <Typography gutterBottom variant="h5" component="div">
                       Hosted Maps
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body1" color="text.secondary">
                       Create maps in QGIS and upload and host the layers on a web map
                     </Typography>
                   </CardContent>
