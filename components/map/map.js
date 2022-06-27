@@ -29,7 +29,7 @@ export default function Map(props) {
                             data={ layer}
                             style = {(ft)=>{            
                                 return {
-                                    //color: layer.style.color,
+                                    color: layer.style.color,
                                 };
                             }}
                         />

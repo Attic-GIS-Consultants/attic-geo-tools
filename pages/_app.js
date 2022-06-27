@@ -1,5 +1,6 @@
 
 import { createTheme, ThemeProvider } from '@mui/material'
+import { QueryClient, QueryClientProvider } from 'react-query'
 import Layout from '../components/layout'
 import '../styles/globals.css'
 
@@ -124,8 +125,9 @@ function MyApp({ Component, pageProps }) {
       }
     }
   })
-
-  return <ThemeProvider theme={theme}><Layout><Component {...pageProps} /></Layout></ThemeProvider>
+  const queryClient = new QueryClient()
+  
+  return <ThemeProvider theme={theme}><QueryClientProvider client={queryClient}><Layout><Component {...pageProps} /></Layout></QueryClientProvider></ThemeProvider>
 }
 
 export default MyApp
