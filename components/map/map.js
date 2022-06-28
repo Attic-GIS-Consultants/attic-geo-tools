@@ -27,9 +27,10 @@ export default function Map(props) {
                         <GeoJSON
                             key={i}
                             data={ layer}
-                            style = {(ft)=>{            
+                            style = {(ft)=>{   
+                                
                                 return {
-                                    color: layer.style.color,
+                                    color: layer.style.color,// generateRandomColor()//
                                 };
                             }}
                         />
@@ -43,3 +44,17 @@ export default function Map(props) {
 }
 
 
+function getColor(d){
+    
+}
+
+function generateRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+var randomColor = generateRandomColor();

@@ -1,14 +1,11 @@
 import { Box, Card, CardActionArea, CardContent, Grid, Typography, CircularProgress } from "@mui/material"
 import axios from "axios"
 import {useQuery} from "react-query"
-import { useEffect, useState } from "react"
+
 
 
 export default function Maps() {
-    //const [maps,setMaps] = useState([])
-
     const {status, data} = GetMaps()
-
     if(status == "loading"){
         return(
             <Box sx={{ display: 'flex', justifyContent:'center',marginTop:6 }}>
