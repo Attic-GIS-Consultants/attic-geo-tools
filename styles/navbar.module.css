@@ -13,12 +13,13 @@
 .navHidden {
    margin-top: 10px;
   display: flex;
+  align-items: center;
   flex-direction: row;
   padding-left: 0px;
   gap: 25px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .nav {
   display: flex;
   flex-direction: column;

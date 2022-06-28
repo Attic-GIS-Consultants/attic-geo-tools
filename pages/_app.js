@@ -29,17 +29,17 @@ function MyApp({ Component, pageProps }) {
       h1: {
         fontFamily: "Open Sans",
         fontSize: '4.50rem', [`@media screen and (max-width: 1440px)`]: {
-          fontSize: "2.4rem"
+          fontSize: "3.8rem"
         }, [`@media screen and (max-width: 1280px)`]: {
-          fontSize: "2.25rem"
+          fontSize: "3.5rem"
         }, [`@media screen and (max-width: 1024px)`]: {
-          fontSize: "2.25rem"
+          fontSize: "3.25rem"
         }, [`@media screen and (max-width: 768px)`]: {
-          fontSize: "2.25rem"
+          fontSize: "2.5rem"
         }, [`@media screen and (max-width: 600px)`]: {
-          fontSize: "1.5rem"
+          fontSize: "2.25rem"
         }, [`@media screen and (max-width: 375px)`]: {
-          fontSize: "1.5rem"
+          fontSize: "2.15rem"
         },
         fontWeight: 700
       },
