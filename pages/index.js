@@ -1,9 +1,16 @@
-import { Card, CardActionArea, Container, Typography, CardContent, CardMedia, Grid } from '@mui/material'
-import Head from 'next/head'
+import {
+  Container,
+  Typography,
+  CardContent,
+  CardMedia,
+  Grid,
+  Box,
+  Button
+} from "@mui/material";
+import Head from "next/head";
+import Image from "next/image";
 //import Image from 'next/image'
 //import styles from '../styles/Home.module.css'
-
-
 
 export default function Home() {
   return (
@@ -15,62 +22,42 @@ export default function Home() {
       </Head>
 
       <main>
-        <Container maxWidth={true} sx={{ display: "flex", flexDirection: 'column', alignItems: 'center' }}>
-          <Typography variant="h1">Tools</Typography>
-
-
-          <Grid container sx={{ display:'flex',justifyContent:'center', py: 2,gap:12 }} maxWidth={true}>
-            <Grid item >
-              <Card sx={{ width: '100%', marginLeft: 2, marginRight: 2, marginBottom: 2, maxWidth: 345, height: 250 }} elevation={12}>
-                <CardActionArea
-                  href='/tools/converter'
-                >
-                  <CardMedia
-                    component="img"
-                    height="140"
-                    image="https://cdn1.vectorstock.com/i/1000x1000/52/80/globe-with-locations-earth-and-continents-vector-28045280.jpg"
-                    alt="coordinate convert"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      Coordinate Converter
-                    </Typography>
-                    <Typography variant="body1" color="text.secondary">
-                      Convert meters into degrees or vice versa
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-            <Grid item>
-              <Card sx={{ width: '100%', marginLeft: 2, marginRight: 2, marginBottom: 2, maxWidth: 345 ,height:250}} elevation={12}>
-                <CardActionArea
-                  href='/tools/maps'
-                >
-                  <CardMedia
-                    component="img"
-                    height="140"
-                    image="https://res.cloudinary.com/attic-gis/image/upload/v1656019047/map_rfvxls.png"
-                    alt="coordinate convert"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      Hosted Maps
-                    </Typography>
-                    <Typography variant="body1" color="text.secondary">
-                      Create maps in QGIS and upload and host the layers on a web map
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
+        <Grid container
+          maxWidth={true}
+          sx={{
+            display: "flex",
+            justifyContent: "space-around",
+            gap: 6,
+            flexWrap: "wrap",
+          }}
+        >
+          <Grid item
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 1,
+              justifyContent: "center",
+              height: 450,
+            }}
+          >
+            <Typography variant="h1" >Spend less time</Typography>
+            <Typography variant="h1">Do more !!!</Typography>
+            <Button href="/tools" sx={{borderRadius:0,width:150}} variant="contained" color="primary">Explore Tools</Button>
           </Grid>
-        </Container>
+          <Grid item sx={{display:'flex',py:4}}>
+            <Image
+              src={
+                "https://res.cloudinary.com/attic-gis/image/upload/v1656446620/energy_pbuhs9.png"
+              }
+              height={450}
+              width={450}
+              alt="hero"
+            />
+          </Grid>
+        </Grid>
       </main>
 
-      <footer >
-
-      </footer>
+      <footer></footer>
     </div>
-  )
+  );
 }

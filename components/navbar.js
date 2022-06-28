@@ -20,7 +20,7 @@ export default function Navbar() {
       </div>
       <div className={barClicked ? styles.navShow : styles.navHidden}>
         <Link href="/"><a><Typography variant="body1">Home</Typography></a></Link>
-        <Link href=""><a><Typography variant="body1">Tools</Typography></a></Link>
+        <Link href="/tools"><a><Typography variant="body1">Tools</Typography></a></Link>
       </div>
 
 

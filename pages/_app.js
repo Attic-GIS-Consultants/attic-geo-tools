@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }) {
       fontFamily: "Open Sans, sans serif",
       h1: {
         fontFamily: "Open Sans",
-        fontSize: '3.0rem', [`@media screen and (max-width: 1440px)`]: {
+        fontSize: '4.50rem', [`@media screen and (max-width: 1440px)`]: {
           fontSize: "2.4rem"
         }, [`@media screen and (max-width: 1280px)`]: {
           fontSize: "2.25rem"
@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }) {
         }, [`@media screen and (max-width: 375px)`]: {
           fontSize: "1.5rem"
         },
-        fontWeight: 600
+        fontWeight: 700
       },
       h2: {
         fontFamily: "Open Sans",
