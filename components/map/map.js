@@ -1,14 +1,17 @@
-import { MapContainer, Marker, TileLayer ,GeoJSON} from 'react-leaflet'
+import { MapContainer, Marker, TileLayer ,GeoJSON, Popup} from 'react-leaflet'
 import "leaflet/dist/leaflet.css"
 import styles from "../../styles/map.module.css"
 import L from "leaflet"
+import { Dialog, DialogContent, Typography } from '@mui/material';
+import { useState } from 'react';
 
 export default function Map(props) {
     const maps = {
         base: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     };
 
-
+    const [open,setOpen] = useState(false)
+    const [selected,setSelected] = useState()
     return (
 
         <MapContainer
@@ -33,10 +36,38 @@ export default function Map(props) {
                                     color: layer.style.color,// generateRandomColor()//
                                 };
                             }}
-                        />
+                            eventHandlers={{
+                                click: (e) => {                                  
+                                    setSelected(e.layer.feature.properties)
+                                    setOpen(true)
+                                }
+                            }
+                                                             
+                            }
+                        >
+                            
+                        </GeoJSON>
                     )
                 })
+
+            
             }
+            {
+                (open) ? <Dialog open={open} onClose={() => { setOpen(false) }}>
+                    <DialogContent>
+                        {
+                            Object.entries(selected).slice(0,4).map(([fieldName, fieldValue],i) => {
+                                return (
+                                    <Typography key={i}>
+                                       {fieldName+ ": "+fieldValue}
+                                    </Typography>
+                                )
+                            })
+                        }
+                    </DialogContent>
+                </Dialog> : null
+            }
+            
             
         </MapContainer>
 
