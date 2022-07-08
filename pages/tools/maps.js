@@ -16,12 +16,15 @@ export default function Maps() {
     else if( status == "success"){
         return (
             <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: 4 }}>
-                <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'center' }}>
+                <Grid maxWidth={true} container spacing={0} sx={{ display: 'flex', justifyContent:'center',px:2 }}>
                     {
                         data.map((map, i) => {
                             return (
-                                <Grid key={i} item>
-                                    <Card>
+                                <Grid key={i} item xl={3} lg={3} md={4} sm={6} xs={6}>
+                                    <Card sx={{
+                                        maxWidth:350,
+                                        marginBottom:4
+                                    }}>
                                         <CardActionArea href={`/tools/map/${map._id}`}>
                                             <CardContent>
                                                 <Typography variant="h6">{map.name}</Typography>

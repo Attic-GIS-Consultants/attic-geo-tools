@@ -3,13 +3,14 @@ import {
   Typography,
   Grid,
   Box,
-  Button
+  Button,
+  useTheme
 } from "@mui/material";
 import Head from "next/head";
 import Image from "next/image";
 import styles from '../styles/Home.module.css'
-
 export default function Home() {
+  const theme = useTheme();
   return (
     <div>
       <Head>
@@ -31,7 +32,10 @@ export default function Home() {
           }}
         >
           <Grid item
-            sx={{display:'flex',flexDirection:'column',gap:2}}
+            sx={{display:'flex',flexDirection:'column',gap:2, alignItems:{
+            },
+          }
+          }        
           >
             <Typography variant="h1" >Spend less time</Typography>
             <Typography variant="h1">Do more !!!</Typography>
