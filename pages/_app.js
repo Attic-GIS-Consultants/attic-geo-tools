@@ -127,7 +127,9 @@ function MyApp({ Component, pageProps }) {
   })
   const queryClient = new QueryClient()
   
-  return <ThemeProvider theme={theme}><QueryClientProvider client={queryClient}><Layout><Component {...pageProps} /></Layout></QueryClientProvider></ThemeProvider>
+  return(
+    <ThemeProvider theme={theme}><QueryClientProvider client={queryClient}><Layout><Component {...pageProps} /></Layout></QueryClientProvider></ThemeProvider>
+  ) 
 }
 
 export default MyApp
