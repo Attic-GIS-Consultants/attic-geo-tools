@@ -24,13 +24,14 @@ export default function Home() {
           sx={{
             display: "flex",
             marginTop: 2,
+            alignItems: 'center',
             justifyContent: "space-around",
             gap: 6,
             flexWrap: "wrap",
           }}
         >
           <Grid item
-            className={styles.heroText}
+            sx={{display:'flex',flexDirection:'column',gap:2}}
           >
             <Typography variant="h1" >Spend less time</Typography>
             <Typography variant="h1">Do more !!!</Typography>
