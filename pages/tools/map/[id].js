@@ -14,7 +14,7 @@ export default function SpecificMap() {
     const router = useRouter()
     useEffect(() => {
         if (!router.isReady) return
-        axios.get(`http://localhost:3000/map/specific/${router.query.id}`).then((res) => {
+        axios.get(`https://attic-geo-api.herokuapp.com/map/specific/${router.query.id}`).then((res) => {
             const layers = res.data.layers
             const reversedLayers = [...layers].reverse()
             setData([res.data])

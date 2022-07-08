@@ -42,7 +42,7 @@ export default function Maps() {
 
 function GetMaps(){
     return useQuery('maps', async ()=>{
-        const { data } = await axios.get("http://localhost:3000/map/all")
+        const { data } = await axios.get("https://attic-geo-api.herokuapp.com/map/all")
         return data
     })
 }

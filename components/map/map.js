@@ -31,7 +31,7 @@ export default function Map(props) {
                             key={i}
                             data={ layer}
                             style = {(ft)=>{   
-                                
+                                console.log(ft);
                                 return {
                                     color: layer.style.color,// generateRandomColor()//
                                 };
@@ -41,11 +41,10 @@ export default function Map(props) {
                                     setSelected(e.layer.feature.properties)
                                     setOpen(true)
                                 }
-                            }
-                                                             
+                            }                                                
                             }
                         >
-                            
+                
                         </GeoJSON>
                     )
                 })
