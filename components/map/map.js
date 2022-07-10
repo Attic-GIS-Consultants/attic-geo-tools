@@ -15,7 +15,7 @@ export default function Map(props) {
     return (
 
         <MapContainer
-            center={[-13.957495, 33.968008]}
+            center={props.center}
             zoom={8}
             scrollWheelZoom={true}
             className={styles.map}
