@@ -1,4 +1,4 @@
-import { MapContainer, Marker, TileLayer ,GeoJSON, Popup} from 'react-leaflet'
+import { MapContainer, Marker, TileLayer, GeoJSON, LayersControl } from 'react-leaflet'
 import "leaflet/dist/leaflet.css"
 import styles from "../../styles/map.module.css"
 import L from "leaflet"
@@ -10,8 +10,8 @@ export default function Map(props) {
         base: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     };
 
-    const [open,setOpen] = useState(false)
-    const [selected,setSelected] = useState()
+    const [open, setOpen] = useState(false)
+    const [selected, setSelected] = useState()
     return (
 
         <MapContainer
@@ -24,40 +24,46 @@ export default function Map(props) {
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url={maps.base}
             />
-            {
-                props.layers.map((layer,i)=>{
-                    return(
-                        <GeoJSON
-                            key={i}
-                            data={ layer}
-                            style = {(ft)=>{   
-                                return {
-                                    color: layer.style.color,// generateRandomColor()//
-                                };
-                            }}
-                            eventHandlers={{
-                                click: (e) => {                                  
-                                    setSelected(e.layer.feature.properties)
-                                    setOpen(true)
-                                }
-                            }                                                
-                            }
-                        >
-                
-                        </GeoJSON>
-                    )
-                })
+            <LayersControl position="topright">
+                {
+                    props.layers.map((layer, i) => {
+                        return (
+                            <LayersControl.Overlay checked name={layer.name} key={i}>
+                                <GeoJSON
+                                    data={layer}
+                                    style={(ft) => {
+                                        return {
+                                            color: layer.style.color,// generateRandomColor()//
+                                        };
+                                    }}
+                                    eventHandlers={{
+                                        click: (e) => {
+                                            setSelected(e.layer.feature.properties)
+                                            setOpen(true)
+                                        }
+                                    }
+                                    }
+                                >
+
+                                </GeoJSON>
+                            </LayersControl.Overlay>
+
+                        )
+                    })
+                }
+            </LayersControl>
+            
 
             
-            }
+          
             {
                 (open) ? <Dialog open={open} onClose={() => { setOpen(false) }}>
                     <DialogContent>
                         {
-                            Object.entries(selected).slice(0,4).map(([fieldName, fieldValue],i) => {
+                            Object.entries(selected).slice(0, 4).map(([fieldName, fieldValue], i) => {
                                 return (
                                     <Typography key={i}>
-                                       {fieldName+ ": "+fieldValue}
+                                        {fieldName + ": " + fieldValue}
                                     </Typography>
                                 )
                             })
@@ -65,16 +71,16 @@ export default function Map(props) {
                     </DialogContent>
                 </Dialog> : null
             }
-            
-            
+
+
         </MapContainer>
 
     )
 }
 
 
-function getColor(d){
-    
+function getColor(d) {
+
 }
 
 function generateRandomColor() {
